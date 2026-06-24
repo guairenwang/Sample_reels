@@ -1,0 +1,27 @@
+.skills-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-cloud-tag {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  font-weight: 720;
+  font-size: 0.9rem;
+  transition: transform 180ms ease;
+}
+
+.skill-cloud-tag:hover {
+  transform: translateY(-3px);
+}
