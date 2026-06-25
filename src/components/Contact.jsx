@@ -83,6 +83,9 @@ export default function Contact() {
         <a className="button button--ghost" href={`tel:${profile.phone}`}>
           电话 {profile.phone}
         </a>
+        <a className="button button--ghost" href="/吴明康的个人简历.docx" download>
+          下载简历
+        </a>
       </div>
 
       <div className="site-footer">
