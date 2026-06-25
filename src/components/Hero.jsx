@@ -172,7 +172,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-content">
-        <p className="eyebrow">嵌入式工程师 / MCU 开发</p>
+        <p className="eyebrow">嵌入式工程师 / AI 网页开发</p>
         <h1>
           <span className="hero-greeting">应届生</span>
           <span className="hero-name">{profile.name}</span>
@@ -189,7 +189,7 @@ export default function Hero() {
       <div className="hero-meta" aria-label="Portfolio highlights">
         <div className="hero-meta-item">
           <span>覆盖方向</span>
-          <strong>MCU开发 / 硬件设计 / PLC / 电气控制</strong>
+          <strong>AI 网页开发 / 硬件设计 / PLC / 电气控制</strong>
         </div>
         <div className="hero-meta-item">
           <span>核心能力</span>

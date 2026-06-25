@@ -178,17 +178,33 @@ export default function About() {
               {profile.experiences.map((exp, i) => (
                 <div key={i} className="timeline-item">
                   <div className="timeline-dot" />
-                  <div className="timeline-card">
-                    <div className="timeline-header">
-                      <h4>{exp.company}</h4>
-                      <span className="timeline-period">{exp.period}</span>
+                  <div className="card-3d"
+                    onMouseMove={(e) => {
+                      const card = e.currentTarget
+                      const r = card.getBoundingClientRect()
+                      const x = (e.clientX - r.left) / r.width - 0.5
+                      const y = (e.clientY - r.top) / r.height - 0.5
+                      card.style.setProperty('--rx', `${-y * 20}deg`)
+                      card.style.setProperty('--ry', `${x * 20}deg`)
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.setProperty('--rx', '0deg')
+                      e.currentTarget.style.setProperty('--ry', '0deg')
+                    }}
+                  >
+                    <div className="card-3d-glow" />
+                    <div className="timeline-card card-3d-content">
+                      <div className="timeline-header">
+                        <h4>{exp.company}</h4>
+                        <span className="timeline-period">{exp.period}</span>
+                      </div>
+                      <p className="timeline-position">{exp.position}</p>
+                      <ul className="timeline-details">
+                        {exp.details.map((d, j) => (
+                          <li key={j}>{d}</li>
+                        ))}
+                      </ul>
                     </div>
-                    <p className="timeline-position">{exp.position}</p>
-                    <ul className="timeline-details">
-                      {exp.details.map((d, j) => (
-                        <li key={j}>{d}</li>
-                      ))}
-                    </ul>
                   </div>
                 </div>
               ))}
@@ -200,6 +216,7 @@ export default function About() {
               <h4 className="award-category-title">竞赛奖项</h4>
               {profile.awards.map((award, i) => {
                 const dates = ['2023.10', '2023.08', '2023.12', '2024.05']
+                const awardImgs = ['/award-1.jpg', '/award-2.jpg', '/award-3.png', '/award-4.png']
                 return (
                   <div key={i} className="strip-card"
                     onMouseEnter={(e) => {
@@ -216,7 +233,7 @@ export default function About() {
                     onMouseLeave={(e) => e.currentTarget.classList.remove('hover')}
                   >
                     <div className="strip-card-bg" />
-                    <img className="strip-card-img" src={`https://picsum.photos/seed/a${i}/300/200`} alt="" draggable={false} />
+                    <img className="strip-card-img" src={awardImgs[i]} alt="" draggable={false} />
                     <div className="strip-card-content">
                       <span className="strip-badge">{award.level}</span>
                       <div className="strip-card-text">
@@ -245,7 +262,7 @@ export default function About() {
                   onMouseLeave={(e) => e.currentTarget.classList.remove('hover')}
                 >
                   <div className="strip-card-bg" />
-                  <img className="strip-card-img" src={`https://picsum.photos/seed/pat${i}/300/200`} alt="" draggable={false} />
+                  <img className="strip-card-img" src="/award-5.png" alt="" draggable={false} />
                   <div className="strip-card-content">
                     <span className="strip-icon-wrap">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -262,18 +279,34 @@ export default function About() {
           )}
 
           {activeTab === 'education' && (
-            <div className="edu-card">
-              <div className="edu-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-              </div>
-              <div className="edu-info">
-                <h4>{profile.education.school}</h4>
-                <p className="edu-major">{profile.education.major} · {profile.education.degree}</p>
-                <p className="edu-period">{profile.education.period}</p>
-                <div className="edu-courses">
-                  {profile.education.courses.map((c, i) => (
-                    <span key={i} className="course-tag">{c}</span>
-                  ))}
+            <div className="card-3d edu-3d"
+              onMouseMove={(e) => {
+                const card = e.currentTarget
+                const r = card.getBoundingClientRect()
+                const x = (e.clientX - r.left) / r.width - 0.5
+                const y = (e.clientY - r.top) / r.height - 0.5
+                card.style.setProperty('--rx', `${-y * 15}deg`)
+                card.style.setProperty('--ry', `${x * 15}deg`)
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.setProperty('--rx', '0deg')
+                e.currentTarget.style.setProperty('--ry', '0deg')
+              }}
+            >
+              <div className="card-3d-glow" />
+              <div className="edu-card card-3d-content">
+                <div className="edu-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div className="edu-info">
+                  <h4>{profile.education.school}</h4>
+                  <p className="edu-major">{profile.education.major} · {profile.education.degree}</p>
+                  <p className="edu-period">{profile.education.period}</p>
+                  <div className="edu-courses">
+                    {profile.education.courses.map((c, i) => (
+                      <span key={i} className="course-tag">{c}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

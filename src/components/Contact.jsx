@@ -77,11 +77,8 @@ export default function Contact() {
       </div>
 
       <div className="contact-actions">
-        <button className="button button--primary" type="button" onClick={() => copyToClipboard(profile.email)}>
-          {profile.email}
-        </button>
-        <button className="button button--ghost" type="button" onClick={() => copyToClipboard(profile.wechat)}>
-          微信 {profile.wechat}
+        <button className="button button--ghost" type="button" onClick={() => copyToClipboard(profile.email)}>
+          QQ邮箱 {profile.email}
         </button>
         <a className="button button--ghost" href={`tel:${profile.phone}`}>
           电话 {profile.phone}
@@ -90,7 +87,7 @@ export default function Contact() {
 
       <div className="site-footer">
         <span>&copy; 2026 {profile.name}</span>
-        <span>Embedded Engineer Portfolio</span>
+        <span>本网页采用 Vite + React 使用 Claude Code + Deepseek V4 实现</span>
       </div>
 
       <div className="toast" id="toast" role="status" aria-live="polite"></div>

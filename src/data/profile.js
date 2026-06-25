@@ -9,7 +9,7 @@ export const profile = {
   wechat: 'Mingkang_Wu',
 
   stats: {
-    projects: 6,
+    projects: 4,
     awards: 4,
     patents: 1,
     experience: '2+'
@@ -42,7 +42,7 @@ export const profile = {
     {
       company: '张家港市创为自动化工程有限公司',
       position: '自动化助理工程师（实习）',
-      period: '2025.03',
+      period: '2026.03',
       location: '张家港',
       salary: '4500元/月',
       details: [
@@ -62,6 +62,13 @@ export const profile = {
       image: '/project1.svg',
       tags: ['树莓派Pico', '树莓派', 'TMC2209', '步进电机驱动', 'OpenCV'],
       description: '下位机采用树莓派Pico，通过TMC2209步进电机驱动控制双臂运动；上位机采用树莓派，利用OpenCV识别魔方六个面所有色块，求解还原算法并与下位机通信完成魔方还原。'
+    },
+    {
+      title: '基于Django框架的后台管理系统',
+      subtitle: '课程设计',
+      image: '/project1.svg',
+      tags: ['Python', 'Django', 'CSS', 'HTML', 'JavaScript'],
+      description: '实现了简单的人员增删改查，验证码登录校验，数据可视化功能。'
     }
   ],
 

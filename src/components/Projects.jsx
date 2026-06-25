@@ -9,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger)
 const videoUrls = [
   'https://www.w3schools.com/html/mov_bbb.mp4',
   'https://www.w3schools.com/html/movie.mp4',
-  'https://samplelib.com/lib/preview/mp4/sample-5s.mp4'
+  'https://samplelib.com/lib/preview/mp4/sample-5s.mp4',
+  'https://www.w3schools.com/html/mov_bbb.mp4'
 ]
 
 const projectList = [
@@ -19,7 +20,7 @@ const projectList = [
     type: '毕业设计 / 嵌入式系统',
     description: profile.projects[0].description,
     tags: profile.projects[0].tags,
-    video: videoUrls[0],
+    video: '/project-1.mp4',
     color: 'project-visual--sky',
     award: null,
     themeLabel: '双臂魔方机器人',
@@ -31,7 +32,7 @@ const projectList = [
     type: '竞赛项目',
     description: profile.awards[0].role,
     tags: ['STM32F1', 'HAL库', '下位机开发', '精准位置控制'],
-    video: videoUrls[1],
+    video: '/project-2.mp4',
     color: 'project-visual--mint',
     award: profile.awards[0].level,
     themeLabel: 'RoboCup 全国赛',
@@ -43,11 +44,23 @@ const projectList = [
     type: '竞赛项目',
     description: profile.awards[3].role,
     tags: ['C板', 'HAL库', 'FreeRTOS', 'M2006无刷电机', '车辆遥控'],
-    video: videoUrls[2],
+    video: '/project-3.mp4',
     color: 'project-visual--coral',
     award: profile.awards[3].level,
     themeLabel: 'RoboMaster',
     themeBg: 'robot'
+  },
+  {
+    id: 3,
+    title: profile.projects[1].title,
+    type: '课程设计 / Web开发',
+    description: profile.projects[1].description,
+    tags: profile.projects[1].tags,
+    video: '/project-4.mp4',
+    color: 'project-visual--mint',
+    award: null,
+    themeLabel: 'Django 后台管理',
+    themeBg: 'cube'
   }
 ]
 
@@ -179,6 +192,7 @@ export default function Projects() {
                 src={active.video}
                 onEnded={() => setVideoPlaying(p => ({...p, [active.id]: false}))}
                 style={{ display: videoPlaying[active.id] ? 'block' : 'none', width: '100%', height: '100%', objectFit: 'cover', borderRadius: '6px' }}
+                controls
                 playsInline
               />
             </div>

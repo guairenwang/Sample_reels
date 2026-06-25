@@ -131,6 +131,44 @@
   border-radius: var(--radius);
 }
 
+/* 3D hover card effect (reference: pure CSS perspective tracker) */
+.card-3d {
+  position: relative;
+  perspective: 600px;
+}
+
+.card-3d-content {
+  transition: transform 300ms ease;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 1;
+}
+
+.card-3d:hover .card-3d-content {
+  filter: brightness(1.05);
+}
+
+.card-3d-glow {
+  position: absolute;
+  inset: -4px;
+  z-index: 0;
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(135deg, rgb(65, 88, 208), rgb(200, 80, 192), rgb(255, 204, 112));
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.card-3d:hover .card-3d-glow {
+  opacity: 0.35;
+}
+
+.edu-3d {
+  max-width: 600px;
+}
+
 .timeline-header {
   display: flex;
   justify-content: space-between;
@@ -199,6 +237,11 @@
   padding: 20px 0;
   cursor: pointer;
   background: transparent;
+  z-index: 1;
+}
+
+.strip-card.hover {
+  z-index: 20;
 }
 
 .strip-card + .strip-card {
@@ -228,19 +271,22 @@
   position: absolute;
   z-index: 10;
   width: 306px;
-  height: 229.5px;
+  height: auto;
+  aspect-ratio: 1280 / 1774;
   object-fit: cover;
   border-radius: 14px;
   pointer-events: none;
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  opacity: 1;
+  image-orientation: none;
 }
 
 .strip-card.hover .strip-card-img {
   display: block;
   left: calc(var(--mx, 0px) - 55px);
   top: calc(var(--my, 0px));
-  transform-origin: 55px 0;
-  transform: rotate(-30deg);
+  transform: translateY(-100%) translateY(20px) rotate(70deg) scale(0.85);
+  transform-origin: 0 100%;
 }
 
 .strip-card-content {

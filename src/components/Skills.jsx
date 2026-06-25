@@ -65,6 +65,16 @@ export default function Skills() {
         <span className="skill-cloud-tag">PCB焊接调试</span>
         <span className="skill-cloud-tag">C / C++</span>
         <span className="skill-cloud-tag">Python</span>
+        <span className="skill-cloud-tag">Java</span>
+        <span className="skill-cloud-tag">Django</span>
+        <span className="skill-cloud-tag">SpringBoot</span>
+        <span className="skill-cloud-tag">CSS</span>
+        <span className="skill-cloud-tag">HTML</span>
+        <span className="skill-cloud-tag">JavaScript</span>
+        <span className="skill-cloud-tag">MyBatis</span>
+        <span className="skill-cloud-tag">MySQL</span>
+        <span className="skill-cloud-tag">SQL Server</span>
+        <span className="skill-cloud-tag">Vue / Vite / React</span>
         <span className="skill-cloud-tag">UART / I2C / SPI</span>
         <span className="skill-cloud-tag">步进电机驱动</span>
         <span className="skill-cloud-tag">西门子S7-1200</span>
