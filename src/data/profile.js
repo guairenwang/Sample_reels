@@ -1,5 +1,5 @@
 export const profile = {
-  name: '吴明康',
+  name: '我是老实人',
   englishName: 'Wu Mingkang',
   title: '嵌入式工程师',
   email: '1656280667@qq.com',

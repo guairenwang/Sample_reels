@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function About() {
   const [activeTab, setActiveTab] = React.useState('experience')
+  const [lightboxImg, setLightboxImg] = React.useState(null)
   const aboutRef = useRef(null)
   const stRefs = useRef([])
 
@@ -219,6 +220,7 @@ export default function About() {
                 const awardImgs = ['/award-1.jpg', '/award-2.jpg', '/award-3.png', '/award-4.png']
                 return (
                   <div key={i} className="strip-card"
+                    onClick={() => setLightboxImg(awardImgs[i])}
                     onMouseEnter={(e) => {
                       e.currentTarget.classList.add('hover')
                       const r = e.currentTarget.getBoundingClientRect()
@@ -248,6 +250,7 @@ export default function About() {
               <h4 className="award-category-title" style={{ marginTop: 28 }}>专利</h4>
               {profile.patents.map((patent, i) => (
                 <div key={`p${i}`} className="strip-card"
+                  onClick={() => setLightboxImg('/award-5.png')}
                   onMouseEnter={(e) => {
                     e.currentTarget.classList.add('hover')
                     const r = e.currentTarget.getBoundingClientRect()
@@ -313,6 +316,12 @@ export default function About() {
           )}
         </div>
       </div>
+
+      {lightboxImg && (
+        <div className="lightbox-overlay" onClick={() => setLightboxImg(null)}>
+          <img className="lightbox-image" src={lightboxImg} alt="" onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
     </section>
   )
 }
