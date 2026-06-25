@@ -48,7 +48,7 @@ export default function Navbar({ scrolled }) {
             {link.label}
           </a>
         ))}
-        <a href="#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>联系我</a>
+        <a href="/吴明康的个人简历.docx" className="nav-cta" download onClick={() => setMenuOpen(false)}>简历</a>
       </nav>
       <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="菜单">
         <span className={`menu-bar ${menuOpen ? 'open' : ''}`} />
