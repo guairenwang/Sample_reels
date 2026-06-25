@@ -86,7 +86,7 @@ export default function Contact() {
       </div>
 
       <div className="site-footer">
-        <span>&copy; 2026 {profile.name}</span>
+        <span>&copy; 2026 吴明康</span>
         <span>本网页采用 Vite + React 使用 Claude Code + Deepseek V4 实现</span>
       </div>
 
